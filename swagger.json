@@ -1,0 +1,26 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Aaron Gusa's W05-08 Personal Assignment",
+    "description": "W05-08 CSE341 Personal Assignment",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3030",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}

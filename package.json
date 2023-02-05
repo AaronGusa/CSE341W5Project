@@ -1,0 +1,36 @@
+{
+  "name": "stellavi",
+  "version": "1.0.0",
+  "description": "Mid-Backend for StellaVi data",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "swag": "node swagRoot.js",
+    "mon": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AaronGusa/CSE341W5Project.git"
+  },
+  "keywords": [
+    "stellavi",
+    "w5",
+    "cse341"
+  ],
+  "author": "Aaron Gusa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AaronGusa/CSE341W5Project/issues"
+  },
+  "homepage": "https://github.com/AaronGusa/CSE341W5Project#readme",
+  "dependencies": {
+    "cjs-module": "^1.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^4.13.0",
+    "nodemon": "^2.0.20",
+    "swagger-autogen": "^2.23.0",
+    "swagger-ui-express": "^4.6.0"
+  }
+}
