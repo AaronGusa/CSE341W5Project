@@ -4,7 +4,7 @@
   "description": "Mid-Backend for StellaVi data",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js",
+    "start": "node index.js",
     "swag": "node swagRoot.js",
     "mon": "nodemon index.js"
   },
