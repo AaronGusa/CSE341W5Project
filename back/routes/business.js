@@ -7,6 +7,8 @@ const controller = require('../controller/businesses');
 
 router.get('/', controller.getDb);
 
+router.post('/', controller.postBus);
+
 
 // exports
 
