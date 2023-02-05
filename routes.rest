@@ -1,2 +1,17 @@
 GET http://localhost:3030/bus
 
+###
+POST http://localhost:3030/bus HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Test Kitchen",
+    "motto": "Testing up in here",
+    "logo": "www.testKitchen.com/logo.png",
+    "street": "Test Street",
+    "city": "Test City",
+    "state":"TE",
+    "zipcode": "84086",
+    "rating": 4.8,
+    "website": "www.testKitchen.com/"
+}

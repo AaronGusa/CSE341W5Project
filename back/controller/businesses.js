@@ -20,6 +20,7 @@ const postBus = async (req, res, next) => {
         rating: req.body.rating,
         website: req.body.website
     };
+    console.log(newBus);
     const result = await mongodb.getDb().db('stellavi').collection('business_profile').insertOne(newBus);
 
     if (result.acknowledged) {
