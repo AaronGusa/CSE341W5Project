@@ -1,5 +1,4 @@
 const mongodb = require('../db/dbConnect');
-const ObjectId = require('mongoDb').ObjectId;
 
 const getDb = async (req, res, next) => {
     const result = await mongodb.getDb().db('stellavi').collection('business_profile').find();
@@ -11,10 +10,24 @@ const getDb = async (req, res, next) => {
 
 const postBus = async (req, res, next) => {
     const newBus = {
-        restaurant
-    }
+        name: req.body.name,
+        motto: req.body.motto,
+        logo: req.body.logo,
+        street: req.body.street,
+        city: req.body.city,
+        state: req.body.state,
+        zipcode: req.body.zipcode,
+        rating: req.body.rating,
+        website: req.body.website
+    };
+    const result = await mongodb.getDb().db('stellavi').collection('business_profile').insertOne(newBus);
+
+    if (result.acknowledged) {
+        res.status(201).json(result);
+    };
 }
 
 module.exports = {
-    getDb
+    getDb,
+    postBus
 }
