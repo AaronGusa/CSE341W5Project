@@ -6,12 +6,11 @@ const mongodb = require('./back/db/dbConnect');
 const routesHub = require('./back/routes/router');
 const port = process.env.PORT || 3030;
 const swaggerUi = require('swagger-ui-express');
-const swagDoc = require('./swagger.json')
+const swagDoc = require('./swagger.json');
 
 
 app
   .use('/routes', swaggerUi.serve, swaggerUi.setup(swagDoc))
-
   .use(bodyParse.json())
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', "*");
