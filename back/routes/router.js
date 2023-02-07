@@ -13,8 +13,8 @@ r.use('/',
   (docData = (req, res) => {
     
   let docData = {
-    APIs: 'https://agw05cse341.onrender.com/api-docs/',
-    Contact_JSON: 'https://agw05cse341.onrender.com/contacts',
+    APIs: 'https://ag341w05.onrender.com/api-docs/',
+    Contact_JSON: 'https://ag341w05.onrender.com/contacts',
   };
   res.send(docData);
 })
