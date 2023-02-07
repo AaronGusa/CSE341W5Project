@@ -7,10 +7,11 @@ const routesHub = require('./back/routes/router');
 const port = process.env.PORT || 3030;
 const swaggerUi = require('swagger-ui-express');
 const swagDoc = require('./swagger.json');
-
+const cors = require('cors');
 
 app
   .use('/routes', swaggerUi.serve, swaggerUi.setup(swagDoc))
+  .use(cors())
   .use(bodyParse.json())
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', "*");
