@@ -5,7 +5,10 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getDb = async (req, res, next) => {
     const result = await mongodb.getDb().db('stellavi').collection('business_profile').find();
-    result.toArray().then((businesses) => {
+    result.toArray((err, businesses) => {
+        if(err) {
+            res.status(400).json({message: err});
+        }
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(businesses);
     });
@@ -30,7 +33,7 @@ const postBus = async (req, res, next) => {
     if (result.acknowledged) {
         res.status(201).json(result);
     } else {
-        res.status(400).json(response.error || 'We seem to have a problem with your submission.')
+        res.status(500).json(response.error || 'We seem to have a problem with your submission.')
     };
 }
 
@@ -52,7 +55,7 @@ const putBus = async (req, res, next) => {
     if (result.modifiedCount > 0) {
         res.status(204).send();
     } else {
-        res.status(500).json*(result.error || 'We seem to have a problem with the update.')
+        res.status(501).json*(result.error || 'We seem to have a problem with the update.')
     };
 }
 
@@ -60,9 +63,9 @@ const delBus = async (req, res, next) => {
     const id = new ObjectId(req.params.id);
     const result = await mongodb.getDb().db('stellavi').collection('business_profile').remove({_id: id}, true);
     if (result.deletedCount > 0) {
-        res.status(204).send();
+        res.status(200).send();
     } else {
-        res.status(500).json(result.error || 'Oh no! We were not able to delete the entry!');
+        res.status(502).json(result.error || 'Oh no! We were not able to delete the entry!');
     }
 
 }
