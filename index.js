@@ -8,6 +8,28 @@ const port = process.env.PORT || 3030;
 const swaggerUi = require('swagger-ui-express');
 const swagDoc = require('./swagger.json');
 const cors = require('cors');
+const { auth, requiresAuth } = require('express-openid-connect');
+
+const authConfig = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.SECRET,
+  baseURL: process.env.BASE_URL,
+  clientID: process.env.CLIENT_ID,
+  issuerBaseURL: process.env.ISSUER_BASE_URL
+};
+
+app.use(auth(authConfig));
+
+app.get('/', (req, res) => {
+  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+})
+app.get('/profile', requiresAuth(), 
+  (req, res) => {
+    console.log(JSON.stringify(req.oidc.user))
+    res.send(JSON.stringify(req.oidc.user));
+  })
+
 
 app
   .use('/routes', swaggerUi.serve, swaggerUi.setup(swagDoc))
@@ -35,5 +57,3 @@ mongodb.initDb( (err, mongodb) => {
   })
 }});
 
-//NOTES
-// SERVER.JS IS VERY LEAN

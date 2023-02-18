@@ -1,4 +1,5 @@
 const r = require('express').Router();
+//const Auth = require('../../middle/auth');
 
 // r.get('/', (req, res, next) => {
 //     res.send("We are routered!");
