@@ -182,7 +182,7 @@
     },
     "/user/": {
       "get": {
-        "description": "",
+        "description": "Requires Authentication",
         "parameters": [],
         "responses": {
           "200": {
