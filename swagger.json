@@ -10,6 +10,14 @@
   "schemes": [
     "https"
   ],
+  "securityDefinitions": {
+    "oAuthSample": {
+      "type": "oauth2",
+      "authorizationUrl": "https://dev-yiwo0izzbi3gaip8.us.auth0.com",
+      "flow": "implicit",
+      "scopes": {}
+    }
+  },
   "paths": {
     "/api-docs": {
       "get": {
@@ -168,6 +176,17 @@
           },
           "502": {
             "description": "Bad Gateway"
+          }
+        }
+      }
+    },
+    "/user/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }

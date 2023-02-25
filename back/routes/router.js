@@ -9,6 +9,8 @@ r.use('/', require('./swagger'))
 
 r.use('/bus', require('./business'))
 
+r.use('/user', require('./user'))
+
 r.use('/', 
   // require('../../front/new.html')
   (docData = (req, res) => {

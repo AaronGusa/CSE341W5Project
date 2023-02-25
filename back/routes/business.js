@@ -2,16 +2,18 @@
 const router = require('express').Router();
 const val = require('../../middle/validationMiddle')
 const controller = require('../controller/businesses');
+const { requiresAuth } = require('express-openid-connect');
+
 
 // formulas
 
-router.get('/', controller.getDb);
+router.get('/', requiresAuth(), controller.getDb);
 
-router.post('/', val.valContact, controller.postBus);
+router.post('/', requiresAuth(), val.valContact, controller.postBus);
 
-router.put('/:id', val.valContact, controller.putBus);
+router.put('/:id', requiresAuth(), val.valContact, controller.putBus);
 
-router.delete('/:id', controller.delBus);
+router.delete('/:id', requiresAuth(), controller.delBus);
 
 
 // exports

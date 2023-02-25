@@ -9,7 +9,17 @@ const swagDoc = {
     schemes: ['https'],
     // host: 'localhost:3030',
     // schemes: ['http'],
+    //# Step 1 - define the security scheme
+    securityDefinitions: {
+        oAuthSample: {
+          type: 'oauth2',
+          authorizationUrl: 'https://dev-yiwo0izzbi3gaip8.us.auth0.com',
+          flow: 'implicit',
+          scopes: {}
+        }
+      }
 };
+
 
 const outputFile = './swagger.json';
 const routerFile = ['./back/routes/router.js']
